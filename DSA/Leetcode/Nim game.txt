@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool canWinNim(int n) {
+        //if n is odd you pick min and when n is even you pick max
+        //1 2 3 4 5 6 7 8 and so on...
+        //W W W L W W W L ....
+        if(n<=3){
+            return true;
+        }
+        if(n%4==0)
+          return false;
+        else
+            return true;
+       
+    }
+};
