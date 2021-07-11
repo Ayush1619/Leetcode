@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int count=0;
+    int sumRootToLeaf(TreeNode* root,int n=0) {
+        // int count=0;
+        if(!root)
+            return 0;
+       n*=2;
+        n+=root->val;
+        if(!root->left && !root->right)
+            count+=n;
+         sumRootToLeaf(root->left,n);
+         sumRootToLeaf(root->right,n);
+        return count;
+        //root(rort->left)+root(root->right)+root->left->right+root->right->left
+        //now convert it into decimal and retirn the value
+        
+        
+    }
+};
