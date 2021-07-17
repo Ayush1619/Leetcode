@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int candy(vector<int>& r) {
+        int n=r.size();
+        vector<int>l(n,1),r1(n,1);
+        // int n=r.size();
+        // int count=0;
+        // int mn=INT_MAX;
+        for(int i=0;i<n-1;i++){
+            if(r[i+1]>r[i]){
+                l[i+1]=l[i]+1;
+            }
+        }
+            for(int i=n-1;i>=1;i--){
+            if(r[i]<r[i-1]){
+                r1[i-1]=r1[i]+1;
+            }
+        }
+        int count=0;
+        for(int i=0;i<n;i++){
+            count+=max(l[i],r1[i]);
+        }
+    
+        return count;;
+    }
+};

@@ -1,0 +1,26 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+       int n=s.size();
+        int m=t.size();
+        // int i;
+        map<char,int> ans,res;
+       // char count="";
+        for(auto x:s)
+            ans[x]++;
+        for(auto x:t)
+            res[x]++;
+        for(auto x:t)
+            if(ans.find(x)==ans.end())
+                return x;
+        else if(ans[x]!=res[x])
+            return x;
+        return t[m-1];
+        
+        
+            
+        
+        
+     
+    }
+};

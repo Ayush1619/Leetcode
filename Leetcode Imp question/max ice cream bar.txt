@@ -1,0 +1,13 @@
+int maxIceCream(vector& costs, int coins) { int res = 0; sort(costs.begin(), costs.end());
+
+int price = 0, i = 0;
+while(price <= coins && i < costs.size())
+{
+    price += costs[i++];
+    if(price > coins)
+        break;
+    res++;
+}
+
+return res;
+}

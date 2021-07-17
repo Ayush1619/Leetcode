@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int distributeCandies(vector<int>& candyType) {
+        int n=candyType.size();
+        unordered_set<int> ans;
+        //n,n is even
+        //can eat n/2 candy
+        for(int i:candyType)
+            ans.insert(i);
+        int x=ans.size();
+        
+            
+        
+        return min(n/2,x);
+    }
+};

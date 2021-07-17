@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool canConstruct(string a, string b) {
+       vector<int>res(26);
+        
+        for(auto i:a){
+            res[i-'a']++;
+        }
+        for(auto i:b){
+            res[i-'a']--;
+        }
+        for(int i=0;i<res.size();i++){
+        if(res[i]>0){
+            return false;
+        }
+        
+    }
+       return true; 
+    }
+};

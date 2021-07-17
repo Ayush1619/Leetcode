@@ -1,0 +1,57 @@
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        // int n=nums.size();
+        // vector<int>res;
+         if(nums.empty()){
+            return {-1,-1};
+        }
+        
+        int start=0,end=nums.size()-1;
+        int start_index=-1;
+        int last_index=-1;
+        // int i=0;
+       
+        if(nums[0]==target){
+            start_index=0;
+        }
+        if(nums[nums.size()-1]==target){
+            last_index=nums.size()-1;
+        }
+        if(start_index== -1){
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(mid>0 && nums[mid]==target && nums[mid-1]!=target){
+                start_index=mid;
+            break;
+            }
+            if(nums[mid]>=target){
+                end=mid-1;
+            }
+            
+            else{
+                start=mid+1;
+            }
+        }
+        }
+        if(last_index== -1){
+            start=0,end=nums.size()-1;
+            while(start<=end){
+                int mid =start+(end-start)/2;
+                if(mid<nums.size()-1 && nums[mid]==target && nums[mid+1]!=target){
+                  last_index=mid;
+                break;
+                }
+                if(nums[mid]<=target){
+                    start=mid+1;
+                }
+                else{
+                    end=mid-1;
+                }
+            }
+            
+                
+        }
+        return {start_index,last_index};
+    }
+};

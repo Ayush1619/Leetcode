@@ -1,0 +1,10 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        //array nums with n obj cored red,white or blue
+        //ordred red(0),white(1),blue(2)
+        sort(nums.begin(),nums.end());
+        
+        
+    }
+};

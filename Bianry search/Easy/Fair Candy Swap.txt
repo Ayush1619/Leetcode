@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> fairCandySwap(vector<int>& A, vector<int>& B) {
+        // sort(A.begin(),A.end());
+        // sort(B.begin(),B.end());
+    
+        int n=A.size();
+        int m=B.size();
+        
+        vector<int>res;
+        int l1=0,l2=0;
+        for(int a:A)
+            l1+=a;
+        
+        for(int b:B)
+            l2+=b;
+        
+       
+        for(int i=n-1;i>=0;i--){
+        for(int j=m-1;j>=0;j--){
+           
+            int diff=A[i]-B[j];
+            if(l1-diff==l2+diff){
+               res.push_back(A[i]);
+                res.push_back(B[j]);
+                return res;
+            }
+        }
+        }
+        return res; 
+    }
+};

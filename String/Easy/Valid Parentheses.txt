@@ -1,0 +1,58 @@
+bool isValid(char* s) {
+int i=0,k=0,j=-1,n=0;
+int m[10000];
+while(s[i]!='\0'){
+switch(s[i]){
+case '(':
+m[n]=i;
+i++;
+k++;
+n++;
+break;
+case ')':
+if(k==0)return false;
+if(s[m[n-1]]=='('){
+i++;
+k--;
+n--;
+}
+else return false;
+break;
+case '{':
+m[n]=i;
+i++;
+k++;
+n++;
+break;
+case '}':
+if(k==0)return false;
+if(s[m[n-1]]=='{'){
+i++;
+k--;
+n--;
+}
+else return false;
+break;
+case '[':
+m[n]=i;
+i++;
+k++;
+n++;
+break;
+case ']':
+if(k==0)return false;
+if(s[m[n-1]]=='['){
+i++;
+k--;
+n--;
+}
+else return false;
+break;
+default: break;
+}
+}
+if(k==0)
+return true;
+else
+return false;
+}

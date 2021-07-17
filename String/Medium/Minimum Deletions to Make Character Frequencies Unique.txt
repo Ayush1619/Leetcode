@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int minDeletions(string s) {
+        unordered_map<char,int> m;
+        set<int> st;
+        int n=s.length();
+        for(int i=0;i<n;i++)                             
+            m[s[i]]++;                                  
+        int cnt=0;
+        for(auto it:m)
+        {   int t=it.second;
+            while(st.find(t)!=st.end()&&t!=0)                                  
+            {
+               cnt++;
+               t--;
+            }
+            if(t!=0)
+                st.insert(t);
+        }
+        return cnt;
+    }
+};

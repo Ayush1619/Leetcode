@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int scoreOfParentheses(string s) {
+        //balanced para
+        //()=1
+        //'( )'
+        // int n=s.size();
+        stack<int>st;
+        int count=0;
+       
+        for(auto x:s)
+            if(x=='('){
+             st.push(count);
+        count=0;
+            }
+        else{
+            int top=st.top();
+        st.pop();
+        int m=max(count*2,1);
+        count=top+m;
+        }
+        return count;
+    }
+};

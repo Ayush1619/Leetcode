@@ -1,0 +1,23 @@
+class Solution {
+public
+    int countPrimes(int n) {
+        vectorbool res(n,true);
+        if(n2){
+            return 0;
+        }
+        for(int i=2;iin;i++){
+            if(res[i]==true){
+            for(int j=ii;jn;j+=i){
+                res[j]=false;
+            }
+        }
+        }
+        int count=0;
+        for(int i=2;in;i++){
+            if(res[i]==true){
+                count++;
+            }
+        }
+        return count;
+    }
+};
